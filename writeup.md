@@ -18,6 +18,9 @@ The pipeline implemented is as follows:
 3. Mask off the regions of the image that we are interested in. This is a polygon reflecting the road directly in front of the car
 4. Hough transform - to move use into line space 
 
+In addition to the pipeline, the draw_lines() function has been extended (in the draw_lines_extrap) function which now takes all detected lines and initially seperates them into two sets based on their gradient. These sets now represent the left hand and right hand lane markings detected. Using numpy and polyfit, a 1-D polynomial line is fitted to these sets, effectively taking the average of the partial lines before drawing this line extrapolated to the top and bottom of the region used for detection in the pipeline.
+
+
 
 ### 2. Identify potential shortcomings with your current pipeline
 
